@@ -23,11 +23,6 @@ namespace PairingTest.Web.Controllers
         {
         }
 
-        /* ASYNC ACTION METHOD... IF REQUIRED... */
-        //        public async Task<ViewResult> Index()
-        //        {
-        //        }
-
         public ViewResult Index()
         {
             try
@@ -45,8 +40,8 @@ namespace PairingTest.Web.Controllers
             return View(new QuestionnaireViewModel());
         }
 
-
-        //public async Task<ViewResult> IndexAsync()
+        /* ASYNC ACTION METHOD... IF REQUIRED... */
+        //public async Task<ViewResult> Index()
         //{
         //    var questionareCall = _urlProvider.WebApiUrl;
 
