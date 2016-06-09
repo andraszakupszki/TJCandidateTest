@@ -1,10 +1,30 @@
 ﻿@model PairingTest.Web.Models.QuestionnaireViewModel
 
 <html>
-    <head>
-        <title>@Model.QuestionnaireTitle</title>
-    </head>
-    <body>
-              
-    </body>
+<head>
+    <title>@Model.QuestionnaireTitle</title>
+</head>
+<body>
+    <h1>@Model.QuestionnaireTitle</h1>
+
+    <p>@TempData["message"]</p>
+
+    @{
+        var i = 0;
+
+        foreach (var question in @Model.QuestionsText)
+        {
+            <div>
+                <p>@question</p>
+                <div>
+                    <input name="question-@i" type="radio"> Berlin
+                    <input name="question-@i" type="radio"> Paris
+                    <input name="question-@i" type="radio"> Havana
+                    <input name="question-@i" type="radio"> Warsaw
+                </div>
+            </div>
+            i++;
+        }
+    }
+</body>
 </html>

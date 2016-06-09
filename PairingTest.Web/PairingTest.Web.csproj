@@ -34,6 +34,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -121,6 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\QuestionnaireController.cs" />
+    <Compile Include="Domain\Interfaces\IQuestionnaireManager.cs" />
+    <Compile Include="Domain\Core\PairingTestUrlProvider.cs" />
+    <Compile Include="Domain\Core\QuestionnaireManager.cs" />
+    <Compile Include="Domain\Interfaces\IPairingTestUrlProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,6 +157,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
