@@ -122,6 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\QuestionnaireController.cs" />
+    <Compile Include="Domain\Core\ApiClient.cs" />
+    <Compile Include="Domain\Interfaces\IApiClient.cs" />
     <Compile Include="Domain\Interfaces\IQuestionnaireManager.cs" />
     <Compile Include="Domain\Core\PairingTestUrlProvider.cs" />
     <Compile Include="Domain\Core\QuestionnaireManager.cs" />

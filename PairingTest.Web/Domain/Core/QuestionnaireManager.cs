@@ -10,39 +10,20 @@ namespace PairingTest.Web.Domain.Core
 {
     public class QuestionnaireManager : IQuestionnaireManager
     {
-        private readonly IPairingTestUrlProvider _urlProvider;
+        private readonly IApiClient _apiClient;
 
-        public QuestionnaireManager(IPairingTestUrlProvider urlProvider)
+        public QuestionnaireManager(IApiClient apiClient)
         {
-            this._urlProvider = urlProvider;
+            this._apiClient = apiClient;
         }
 
-        public QuestionnaireManager() : this(new PairingTestUrlProvider())
+        public QuestionnaireManager() : this(new ApiClient())
         {
         }
 
         public string GetQuestionare()
         {
-            var questionareCall = _urlProvider.WebApiUrl;
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(questionareCall);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                var response = client.GetAsync("/api/Questions").Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-
-                    return responseContent.ReadAsStringAsync().Result;
-                }
-                else
-                {
-                    throw new Exception("Failed to get questionare.");
-                }
-            }
+            return this._apiClient.Get("/api/Questions");
         }
     }
 }
